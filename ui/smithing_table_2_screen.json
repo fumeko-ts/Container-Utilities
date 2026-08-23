@@ -1,0 +1,15 @@
+{
+  "smithing_table_panel/root_panel/smithing_table_screen_inventory": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "right_elements@_global.left_cell_toggles": {}
+          }
+        ]
+      }
+    ]
+  }
+}
