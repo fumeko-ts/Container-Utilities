@@ -4,10 +4,7 @@
   "redstone_content": {
     "type": "panel",
     "controls": [
-      {
-        "right_elements@_global.left_cell_toggles": {}
-      },
-
+      {"right_elements@_global.left_cell_toggles": {}},
       {
         "text_box@_global.text_edit_box": {
           "size": ["100%", 18],
@@ -61,51 +58,14 @@
     "consume_hover_events": false,
     "$button_output_action|default": "",
     "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "$button_output_action",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_secondary_select",
-        "to_button_id": "$button_output_action",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "$button_output_action",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_select",
-        "to_button_id": "$button_output_action",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_secondary_select",
-        "to_button_id": "$button_output_action",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      },
+      {"from_button_id":"button.menu_select"                ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.menu_secondary_select"      ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.menu_ok"                    ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.controller_select"          ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.controller_secondary_select","to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
 
-      {
-        "from_button_id": "button.inventory_left",
-        "to_button_id": "$button_output_action",
-        "ignored": "(not $mouse)",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.inventory_right",
-        "to_button_id": "$button_output_action",
-        "ignored": "(not $mouse)",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      }
+      {"from_button_id":"button.inventory_left" ,"to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"},
+      {"from_button_id":"button.inventory_right","to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"}
     ]
   },
   "button": {
@@ -129,55 +89,96 @@
     "default_focus_precedence": 1,
     "$button_output_action|default": "",
     "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "$button_output_action",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_secondary_select",
-        "to_button_id": "$button_output_action",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "$button_output_action",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_select",
-        "to_button_id": "$button_output_action",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_secondary_select",
-        "to_button_id": "$button_output_action",
-        "mapping_type": "pressed"
-      },
+      {"from_button_id":"button.menu_select"                ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.menu_secondary_select"      ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.menu_ok"                    ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.controller_select"          ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {"from_button_id":"button.controller_secondary_select","to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
 
-      {
-        "from_button_id": "button.inventory_left",
-        "to_button_id": "$button_output_action",
-        "ignored": "(not $mouse)",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.inventory_right",
-        "to_button_id": "$button_output_action",
-        "ignored": "(not $mouse)",
-        "consume_event": false,
-        "mapping_type": "pressed"
-      }
+      {"from_button_id":"button.inventory_left" ,"to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"},
+      {"from_button_id":"button.inventory_right","to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"}
     ]
   },
 
+  "toggle_texture_template": {
+    "type": "image",
+    "nineslice_size": 2,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 3,
+    "size": ["100% - 2px", "100% - 2px"],
+    "controls": [
+      {
+        "$icon_path": {
+          "type":"image",
+          "size": "$icon_image_size",
+          "texture": "$icon_path",
+          "color": "$icon_color",
+          "layer": 4,
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$icon_image_size": [10, 10],
+          "variables": {
+            "requires": "($toggle_view_binding_name = 'toggle_mode_reset')",
+            "$icon_image_size": [9, 9]
+          }
+        }
+      },
+      {
+        "icon_label_holder": {
+          "type": "image",
+          "size": ["100%c + 7px", "100% - 2px"],
+          "anchor_from": "left_middle",
+          "anchor_to": "right_middle",
+          "texture": "textures/label_underlay",
+          "layer": 1,
+          "nineslice_size": 1,
+          "uv": [0, 0],
+          "uv_size": [3, 5],
+          "controls": [
+            {
+              "icon_label": {
+                "type": "label",
+                "size": ["default", 10],
+                "layer": 5,
+                "offset": [1, 0],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "text": "('#' + $toggle_view_binding_name)",
+                "property_bag": {
+                  "#move_one": "x1",
+                  "#move_two": "x2",
+                  "#move_all": "x64",
+
+                  "#drop_one": "x1",
+                  "#drop_all": "x64",
+                  "#toggle_mode_reset": "structure_block.reset"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],    
+    "$toggle_is_checked|default": false,
+    "$toggle_is_hover|default": false,
+    "$icon_path|default": "('textures/' + $toggle_view_binding_name)",
+    "$icon_color|default": [0.290, 0.286, 0.286],  
+    "variables": {
+      "requires": "$toggle_is_hover",
+      "$icon_color": [0.890, 0.890, 0.890]
+    }
+  },
+
+  "toggle_default@_global.toggle_texture_template": { "texture": "textures/button_assets/toggle_default.png" },
+  "toggle_hover@_global.toggle_texture_template": { "texture": "textures/button_assets/toggle_hover.png" },
+
   "toggle": {
     "type": "panel",
-    "$unchecked_control|default": "common.radio_toggle_unchecked_state",
-    "$checked_control|default": "common.radio_toggle_checked_state",
-    "$unchecked_hover_control|default": "common.radio_toggle_unchecked_hover_state",
-    "$checked_hover_control|default": "common.radio_toggle_checked_hover_state",
+    "$unchecked_control|default": "_global.toggle_default",
+    "$checked_control|default": "_global.toggle_default",
+    "$unchecked_hover_control|default": "_global.toggle_hover",
+    "$checked_hover_control|default": "_global.toggle_hover",
     "$radio_toggle_group|default": false,
     "$toggle_default_state|default": false,
     "$toggle_group_forced_index|default": -1,
@@ -239,34 +240,21 @@
           ],
           "controls": [
             { "unchecked@$unchecked_control": {} },
-            { "checked@$checked_control": {} },
-            {
-              "unchecked_hover@$unchecked_hover_control": {
-                "controls": [
-                  {
-                    "hover_text@common.hover_text": {
-                      "layer": 999,
-                      "property_bag": {
-                        "#hover_text": "('id: ' + $toggle_view_binding_name)"
-                      }
-                    }
-                  }
-                ]
-              }
+            { 
+              "checked@$checked_control": {
+                "$toggle_is_checked": true
+              } 
             },
-            {
+            { 
+              "unchecked_hover@$unchecked_hover_control": {
+                "$toggle_is_hover": true
+              } 
+            },
+            { 
               "checked_hover@$checked_hover_control": {
-                "controls": [
-                  {
-                    "hover_text@common.hover_text": {
-                      "layer": 999,
-                      "property_bag": {
-                        "#hover_text": "('id: ' + $toggle_view_binding_name)"
-                      }
-                    }
-                  }
-                ]
-              }
+                "$toggle_is_hover": true,
+                "$toggle_is_checked": true
+              } 
             }
           ]
         }
@@ -451,23 +439,68 @@
     "text_alignment": "left"
   },
   "left_cell_toggles": {
-    "type": "stack_panel",
-    "size": [18, "100%c"],
-    "orientation": "vertical",
+    "type": "panel",
     "anchor_from": "right_middle",
     "anchor_to": "left_middle",
+    "size": [19, "100%c"],
     "controls": [
       {
-        "1@_global.radio": {
-          "$toggle_view_binding_name": "toggle_state_reset_mode0",
-          "$toggle_default_state": true
+        //horizontal stack panels shift their items left(the center anchor of a stack is the left middle)
+        //vertical stack panels shift their items up(the center anchor of a stack is the top middle)
+        "item_management_stack_1": {
+          "type": "stack_panel",
+          "size": [18, "100%c"],
+          "orientation": "vertical",
+          "controls": [
+            {
+              "reset_selection_toggle@_global.radio": {
+                "$toggle_view_binding_name": "toggle_mode_reset",
+                "$toggle_default_state": true
+              }
+            },
+            {
+              "move_toggles_stack": {
+                "type": "stack_panel",
+                "size": [18, "100%c"],
+                "orientation": "vertical",
+                "controls": [
+                  { "1@_global.radio": { "$toggle_view_binding_name": "move_one", "$toggle_group_forced_index": 1 } },
+                  { "2@_global.radio": { "$toggle_view_binding_name": "move_two", "$toggle_group_forced_index": 2 } },
+                  { "3@_global.radio": { "$toggle_view_binding_name": "move_all", "$toggle_group_forced_index": 3 } }
+                ]
+              }
+            },
+            {
+              "drop_toggles_stack": {
+                "type": "stack_panel",
+                "size": [18, "100%c"],
+                "orientation": "vertical",
+                "controls": [
+                  { "1@_global.radio": { "$toggle_view_binding_name": "drop_one", "$toggle_group_forced_index": 4 } },
+                  { "2@_global.radio": { "$toggle_view_binding_name": "drop_all", "$toggle_group_forced_index": 5 } }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {"binding_type":"view","source_control_name":"move_one"  ,"source_property_name":"#toggle_state","target_property_name":"#is_move_one"},
+            {"binding_type":"view","source_control_name":"move_two"  ,"source_property_name":"#toggle_state","target_property_name":"#is_move_two"},
+            {"binding_type":"view","source_control_name":"move_all","source_property_name":"#toggle_state","target_property_name":"#is_move_all"},
+            {"binding_type":"view","source_control_name":"drop_one"  ,"source_property_name":"#toggle_state","target_property_name":"#is_drop_one"},
+            {"binding_type":"view","source_control_name":"drop_all","source_property_name":"#toggle_state","target_property_name":"#is_drop_all"},
+            {
+              "binding_type": "view",
+              "source_property_name": "(#is_move_all or #is_move_one or #is_move_two)",
+              "target_property_name": "#move_toggles_selected"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#is_drop_all or #is_drop_one)",
+              "target_property_name": "#drop_toggles_selected"
+            }
+          ]
         }
-      },
-      { "2@_global.radio": { "$toggle_view_binding_name": "move_1", "$toggle_group_forced_index": 1 } },
-      { "3@_global.radio": { "$toggle_view_binding_name": "move_2", "$toggle_group_forced_index": 2 } },
-      { "4@_global.radio": { "$toggle_view_binding_name": "move_all", "$toggle_group_forced_index": 3 } },
-      { "5@_global.radio": { "$toggle_view_binding_name": "drop_1", "$toggle_group_forced_index": 4 } },
-      { "6@_global.radio": { "$toggle_view_binding_name": "drop_all", "$toggle_group_forced_index": 5 } }
+      }
     ]
   },
   "right_row_toggles": {

@@ -6,27 +6,14 @@
   "move_2": {
     "type": "panel",
     "controls": [
-      {
-        "drop_button_underlay@_global.button": {
-          "$button_output_action": "button.container_auto_place_one"
-        }
-      },
-      {
-        "move_2_overlay@_global.input_panel_overlay": {
-          "$button_output_action": "button.container_auto_place_one"
-        }
-      }
+      {"drop_button_underlay@item_data.move_1": {}},
+      {"move_2_overlay@_global.input_panel_overlay": {"$button_output_action": "button.container_auto_place_one"}}
     ]
   },
-  "move_all@_global.button": {
-    "$button_output_action": "button.container_auto_place"
-  },
-  "drop_1@_global.button": {
-    "$button_output_action": "button.drop_one"
-  },
-  "drop_all@_global.button": {
-    "$button_output_action": "button.drop_all"
-  },
+  "move_all@_global.button": {"$button_output_action": "button.container_auto_place"},
+  "drop_1@_global.button"  : {"$button_output_action": "button.drop_one"},
+  "drop_all@_global.button": {"$button_output_action": "button.drop_all"},
+
   "item_movement_factory": {
     "type": "panel",
     "size": ["100%", "100%"],
@@ -45,7 +32,7 @@
             {
               "binding_type": "view",
               "resolve_sibling_scope": true,
-              "source_control_name": "item_movement_factory_element",
+              "source_control_name": "vanilla_button_replacement",
               "source_property_name": "(#toggle_length = 0)",
               "target_property_name": "#visible"
             }
@@ -53,9 +40,9 @@
         }
       },
       {
-        "item_movement_factory_element": {
+        "vanilla_button_replacement": {
           "type": "collection_panel",
-          "collection_name": "custom_itemss",
+          "collection_name": "item_movement_collection",
           "size": ["100%", "100%"],
           "factory": {
             "name": "item_movement_buttons_factory",
@@ -86,36 +73,11 @@
               "binding_collection_name": "$item_collection_name",
               "binding_name": "#hover_text"
             },
-            {
-              "binding_type": "view",
-              "source_control_name": "move_1",
-              "source_property_name": "(#toggle_state * 1)",
-              "target_property_name": "#p1"
-            },
-            {
-              "binding_type": "view",
-              "source_control_name": "move_2",
-              "source_property_name": "(#toggle_state * 2)",
-              "target_property_name": "#p2"
-            },
-            {
-              "binding_type": "view",
-              "source_control_name": "move_all",
-              "source_property_name": "(#toggle_state * 3)",
-              "target_property_name": "#p3"
-            },
-            {
-              "binding_type": "view",
-              "source_control_name": "drop_1",
-              "source_property_name": "(#toggle_state * 4)",
-              "target_property_name": "#p4"
-            },
-            {
-              "binding_type": "view",
-              "source_control_name": "drop_all",
-              "source_property_name": "(#toggle_state * 5)",
-              "target_property_name": "#p5"
-            },
+            {"binding_type":"view","source_control_name":"move_one","source_property_name":"(#toggle_state * 1)","target_property_name":"#p1"},
+            {"binding_type":"view","source_control_name":"move_two","source_property_name":"(#toggle_state * 2)","target_property_name":"#p2"},
+            {"binding_type":"view","source_control_name":"move_all","source_property_name":"(#toggle_state * 3)","target_property_name":"#p3"},
+            {"binding_type":"view","source_control_name":"drop_one","source_property_name":"(#toggle_state * 4)","target_property_name":"#p4"},
+            {"binding_type":"view","source_control_name":"drop_all","source_property_name":"(#toggle_state * 5)","target_property_name":"#p5"},
             {
               "binding_type": "view",
               "binding_condition": "always",
