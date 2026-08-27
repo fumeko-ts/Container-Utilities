@@ -28,7 +28,7 @@
           },
           {
             "binding_type": "view",
-            "source_control_name": "display_text",
+            "source_control_name": "utility_search_box",
             "source_property_name": "#item_name",
             "target_property_name": "#item_name"
           },

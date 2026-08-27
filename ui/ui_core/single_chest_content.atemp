@@ -3,24 +3,11 @@
 
   "container_elements": {
     "type": "panel",
-    "size": ["100%", "100%"],
     "$row_index_offset|default": 0,
     "controls": [
-      {
-        "left_elements@_global.left_cell_toggles": {
-          "anchor_from": "left_middle",
-          "anchor_to": "right_middle"
-        }
-      },
-      {"right_elements@_global.right_row_toggles": {}},
-      {
-        "text_box@_global.text_edit_box": {
-          "size": ["100%", 18],
-          "anchor_from": "bottom_middle",
-          "anchor_to": "top_middle",
-          "offset": [0, 2]
-        }
-      },
+      { "primary_elements@toggle_manager.primary_management_toggles": {"$toggle_position": "left"} },
+      { "right_elements@toggle_manager.right_row_toggles": {} },
+      { "chest_top_overlays@single_chest_content.9x3_overlays": { "offset": [0, 12] } },
       {
         "inventory_overlay@single_chest_content.9x3_overlays": {
           "anchor_from": "bottom_left",
@@ -31,18 +18,14 @@
         }
       },
       {
-        "chest_top_overlays@single_chest_content.9x3_overlays": {
-          "offset": [0, 12]
-        }
-      },
-      {
         "hotbar_overlay@single_chest_content.9x1_overlays": {
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
           "offset": [0, -14],
           "size": [162, 18]
         }
-      }
+      },
+      { "text_box@_global.text_edit_control": {} }
     ]
   },
   "9x1_overlays": {

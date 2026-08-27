@@ -3,6 +3,7 @@
     "ui/ui_core/item_data.atemp",
     "ui/ui_core/single_chest_content.atemp",
     "ui/ui_core/double_chest_content.atemp",
-    "ui/ui_core/_global.atemp"
+    "ui/ui_core/_global.atemp",
+    "ui/ui_core/toggle_manager.atemp"
   ]
 }

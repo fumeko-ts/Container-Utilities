@@ -4,15 +4,8 @@
   "redstone_content": {
     "type": "panel",
     "controls": [
-      {"right_elements@_global.left_cell_toggles": {}},
-      {
-        "text_box@_global.text_edit_box": {
-          "size": ["100%", 18],
-          "anchor_from": "bottom_middle",
-          "anchor_to": "top_middle",
-          "offset": [0, 2]
-        }
-      }
+      { "right_elements@toggle_manager.primary_management_toggles": {"$toggle_position": "right"} },
+      { "text_box@_global.text_edit_control": {} }
     ]
   },
   "input_panel_with_index@_global.input_panel_overlay": {
@@ -32,7 +25,7 @@
       },
       {
         "binding_type": "view",
-        "source_control_name": "display_text",
+        "source_control_name": "utility_search_box",
         "source_property_name": "#item_name",
         "target_property_name": "#item_name"
       },
@@ -42,6 +35,19 @@
         "target_property_name": "#visible"
       }
     ]
+  },
+  "text_edit_control@common.text_edit_box": {
+    "property_bag": {
+      "#property_field": "#item_name"
+    },
+    "anchor_from": "bottom_middle",
+    "anchor_to": "top_middle",
+    "offset": [0, 2],
+    "$text_edit_text_control": "utility_search_box",
+    "size": ["100%", 18],
+    "max_length": 30,
+    "$text_edit_binding_name": "#text_box_item_name",
+    "$text_edit_box_label_size": ["default", 10]
   },
   "input_panel_overlay": {
     "type": "input_panel",
@@ -58,14 +64,51 @@
     "consume_hover_events": false,
     "$button_output_action|default": "",
     "button_mappings": [
-      {"from_button_id":"button.menu_select"                ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.menu_secondary_select"      ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.menu_ok"                    ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.controller_select"          ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.controller_secondary_select","to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
 
-      {"from_button_id":"button.inventory_left" ,"to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"},
-      {"from_button_id":"button.inventory_right","to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"}
+      {
+        "from_button_id": "button.inventory_left",
+        "to_button_id": "$button_output_action",
+        "ignored": "(not $mouse)",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.inventory_right",
+        "to_button_id": "$button_output_action",
+        "ignored": "(not $mouse)",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      }
     ]
   },
   "button": {
@@ -77,11 +120,7 @@
         "binding_condition": "once"
       }
     ],
-    "controls": [
-      {
-        "highlight@common.highlight_slot_panel": {}
-      }
-    ],
+    "controls": [{ "highlight@common.highlight_slot_panel": {} }],
     "hover_control": "highlight",
     "sound_name": "random.click",
     "sound_volume": 0,
@@ -89,96 +128,56 @@
     "default_focus_precedence": 1,
     "$button_output_action|default": "",
     "button_mappings": [
-      {"from_button_id":"button.menu_select"                ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.menu_secondary_select"      ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.menu_ok"                    ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.controller_select"          ,"to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
-      {"from_button_id":"button.controller_secondary_select","to_button_id":"$button_output_action","consume_event":false,"mapping_type": "pressed"},
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "$button_output_action",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
 
-      {"from_button_id":"button.inventory_left" ,"to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"},
-      {"from_button_id":"button.inventory_right","to_button_id":"$button_output_action","ignored":"(not $mouse)","consume_event": false,"mapping_type": "pressed"}
+      {
+        "from_button_id": "button.inventory_left",
+        "to_button_id": "$button_output_action",
+        "ignored": "(not $mouse)",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.inventory_right",
+        "to_button_id": "$button_output_action",
+        "ignored": "(not $mouse)",
+        "consume_event": false,
+        "mapping_type": "pressed"
+      }
     ]
   },
 
-  "toggle_texture_template": {
-    "type": "image",
-    "nineslice_size": 2,
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": 3,
-    "size": ["100% - 2px", "100% - 2px"],
-    "controls": [
-      {
-        "$icon_path": {
-          "type":"image",
-          "size": "$icon_image_size",
-          "texture": "$icon_path",
-          "color": "$icon_color",
-          "layer": 4,
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "$icon_image_size": [10, 10],
-          "variables": {
-            "requires": "($toggle_view_binding_name = 'toggle_mode_reset')",
-            "$icon_image_size": [9, 9]
-          }
-        }
-      },
-      {
-        "icon_label_holder": {
-          "type": "image",
-          "size": ["100%c + 7px", "100% - 2px"],
-          "anchor_from": "left_middle",
-          "anchor_to": "right_middle",
-          "texture": "textures/label_underlay",
-          "layer": 1,
-          "nineslice_size": 1,
-          "uv": [0, 0],
-          "uv_size": [3, 5],
-          "controls": [
-            {
-              "icon_label": {
-                "type": "label",
-                "size": ["default", 10],
-                "layer": 5,
-                "offset": [1, 0],
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "text": "('#' + $toggle_view_binding_name)",
-                "property_bag": {
-                  "#move_one": "x1",
-                  "#move_two": "x2",
-                  "#move_all": "x64",
-
-                  "#drop_one": "x1",
-                  "#drop_all": "x64",
-                  "#toggle_mode_reset": "structure_block.reset"
-                }
-              }
-            }
-          ]
-        }
-      }
-    ],    
-    "$toggle_is_checked|default": false,
-    "$toggle_is_hover|default": false,
-    "$icon_path|default": "('textures/' + $toggle_view_binding_name)",
-    "$icon_color|default": [0.290, 0.286, 0.286],  
-    "variables": {
-      "requires": "$toggle_is_hover",
-      "$icon_color": [0.890, 0.890, 0.890]
-    }
-  },
-
-  "toggle_default@_global.toggle_texture_template": { "texture": "textures/button_assets/toggle_default.png" },
-  "toggle_hover@_global.toggle_texture_template": { "texture": "textures/button_assets/toggle_hover.png" },
-
   "toggle": {
     "type": "panel",
-    "$unchecked_control|default": "_global.toggle_default",
-    "$checked_control|default": "_global.toggle_default",
-    "$unchecked_hover_control|default": "_global.toggle_hover",
-    "$checked_hover_control|default": "_global.toggle_hover",
     "$radio_toggle_group|default": false,
     "$toggle_default_state|default": false,
     "$toggle_group_forced_index|default": -1,
@@ -188,44 +187,60 @@
         "$toggle_view_binding_name": {
           "type": "toggle",
 
-          "layer": 1,
+          "layer": 2,
           "sound_name": "random.click",
-          "sound_volume": 1.0,
-          "sound_pitch": 1.0,
-          "checked_control": "checked",
-          "unchecked_control": "unchecked",
-          "checked_hover_control": "checked_hover",
-          "unchecked_hover_control": "unchecked_hover",
+          "sound_volume": 0,
+          "sound_pitch": 0,
           "radio_toggle_group": "$radio_toggle_group",
           "toggle_name": "$toggle_name",
           "toggle_default_state": "$toggle_default_state",
           "toggle_group_forced_index": "$toggle_group_forced_index",
           "toggle_group_default_selected": "$toggle_group_default_selected",
-
+          "consume_hover_events": false,
+          "always_listen_to_input": true,
           "button_mappings": [
             {
               "from_button_id": "button.menu_select",
               "to_button_id": "button.menu_ok",
+              "consume_event": false,
               "mapping_type": "pressed"
             },
             {
               "from_button_id": "button.menu_secondary_select",
               "to_button_id": "button.menu_ok",
+              "consume_event": false,
               "mapping_type": "pressed"
             },
             {
               "from_button_id": "button.menu_ok",
               "to_button_id": "button.menu_ok",
+              "consume_event": false,
               "mapping_type": "pressed"
             },
             {
               "from_button_id": "button.controller_select",
               "to_button_id": "button.menu_ok",
+              "consume_event": false,
               "mapping_type": "pressed"
             },
             {
               "from_button_id": "button.controller_secondary_select",
               "to_button_id": "button.menu_ok",
+              "consume_event": false,
+              "mapping_type": "pressed"
+            },
+            {
+              "from_button_id": "button.inventory_left",
+              "to_button_id": "button.menu_ok",
+              "consume_event": false,
+              "ignored": "(not $mouse)",
+              "mapping_type": "pressed"
+            },
+            {
+              "from_button_id": "button.inventory_right",
+              "to_button_id": "button.menu_ok",
+              "consume_event": false,
+              "ignored": "(not $mouse)",
               "mapping_type": "pressed"
             }
           ],
@@ -239,22 +254,51 @@
             }
           ],
           "controls": [
-            { "unchecked@$unchecked_control": {} },
-            { 
-              "checked@$checked_control": {
-                "$toggle_is_checked": true
-              } 
-            },
-            { 
-              "unchecked_hover@$unchecked_hover_control": {
-                "$toggle_is_hover": true
-              } 
-            },
-            { 
-              "checked_hover@$checked_hover_control": {
-                "$toggle_is_hover": true,
-                "$toggle_is_checked": true
-              } 
+            {
+              "toggle_label_underlay": {
+                "type": "image",
+                "layer": 1,
+                "size": ["100%c + 7px", "100% - 4px"],
+
+                "texture": "$toggle_label_underlay_texture",
+                "nineslice_size": "$toggle_label_underlay_texture_nineslice",
+                "uv": "$toggle_label_underlay_uv",
+                "uv_size": "$toggle_label_underlay_uv_size",
+
+                "anchor_from": "$toggle_holder_anchor_from",
+                "anchor_to": "$toggle_holder_anchor_to",
+
+                "offset": "$toggle_label_underlay_offset",
+
+                "controls": [
+                  {
+                    "toggle_label": {
+                      "type": "label",
+                      "size": ["default", 10],
+                      "layer": 5,
+                      "offset": [1, 0],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "color": "$toggle_label_color",
+                      "text": "('#' + $toggle_view_binding_name)",
+                      "property_bag": {
+                        "#move_one": "x1",
+                        "#move_two": "x2",
+                        "#move_all": "x64",
+                        "#drop_one": "x1",
+                        "#drop_all": "x64",
+                        "#toggle_mode_reset": "structure_block.reset",
+
+                        //row text
+                        "#move_one_row": "x1",
+                        "#move_two_row": "x2",
+                        "#move_all_row": "x64",
+                        "#drop_all_row": "x64"
+                      }
+                    }
+                  }
+                ]
+              }
             }
           ]
         }
@@ -262,258 +306,108 @@
     ]
   },
   "radio@_global.toggle": {
-    "size": [18, 18],
+    "size": "$management_toggle_size",
     "$radio_toggle_group": true,
     "$toggle_name": "item_management_toggles",
     "$toggle_group_forced_index": 0,
     "$toggle_group_default_selected": 0
   },
-  "text_edit_box": {
-    "type": "edit_box",
-    "text_box_name": "$text_box_name",
-    "max_length": 30,
-    "text_type": "ExtendedASCII",
-    "text_control": "$text_edit_text_control",
-    "place_holder_control": "place_holder_text_label",
-    "locked_control": "locked",
+
+  "button_visuals": {
+    "type": "button",
+    "layer": 1,
+    "size": ["100%", "100%"],
     "default_control": "default",
-    "hover_control": "hover",
     "pressed_control": "pressed",
-    "text_edit_box_grid_collection_name": "Minecraft",
+    "hover_control": "hover",
+    "sound_name": "random.click",
+    "sound_volume": 1,
+    "sound_pitch": 1,
+    "$toggle_is_hover|default": true,
+    "$icon_path|default": "$icon_reset_texture",
+    "controls": [
+      {
+        "default@_global.toggle_texture_template": {
+          "texture": "$button_default_texture",
+          "$toggle_is_hover": false
+        }
+      },
+      { "hover@_global.toggle_texture_template": { "texture": "$button_hover_texture" } },
+      { "pressed@_global.toggle_texture_template": { "texture": "$button_pressed_texture" } }
+    ],
+
     "button_mappings": [
       {
         "from_button_id": "button.menu_select",
-        "to_button_id": "button.text_edit_box_selected",
-        "mapping_type": "pressed",
-        "handle_select": true,
-        "handle_deselect": false
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
       },
       {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.text_edit_box_selected",
-        "mapping_type": "global",
-        "handle_select": false,
-        "handle_deselect": true,
-        "consume_event": false
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
       },
       {
         "from_button_id": "button.menu_ok",
-        "to_button_id": "button.text_edit_box_selected",
-        "mapping_type": "pressed",
-        "handle_select": true,
-        "handle_deselect": true
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
       },
       {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.text_edit_box_selected",
-        "mapping_type": "global",
-        "handle_select": false,
-        "handle_deselect": true
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
       },
       {
-        "from_button_id": "button.menu_cancel",
-        "to_button_id": "button.text_edit_box_deselected",
-        "mapping_type": "global",
-        "handle_select": false,
-        "handle_deselect": true
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
       },
-      { "to_button_id": "button.text_edit_box_hovered", "mapping_type": "pressed" },
+
       {
-        "from_button_id": "button.menu_clear",
-        "to_button_id": "button.text_edit_box_clear",
-        "mapping_type": "focused",
-        "handle_select": false,
-        "handle_deselect": false
+        "from_button_id": "button.inventory_left",
+        "to_button_id": "button.menu_ok",
+        "ignored": "(not $mouse)",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.inventory_right",
+        "to_button_id": "button.menu_ok",
+        "ignored": "(not $mouse)",
+        "mapping_type": "pressed"
       }
-    ],
-    "$text_edit_color|default": "white",
-    "$text_edit_locked_color|default": "",
-    "$text_box_content|default": "#text_box_item_name",
-    "$clipping_panel_size|default": ["100% - 4px", "100% - 4px"],
-    "$text_edit_text_control|default": "display_text",
-    "$default_control|default": "common.edit_box_indent",
-    "$locked_control|default": "common.edit_box_indent",
-    "$hover_control|default": "common.edit_box_indent_hover",
-    "$pressed_control|default": "common.edit_box_indent_hover",
-    "$extra_contents|default": "common.empty_panel",
-    "$text_box_name|default": "#text_box_name",
-    "$edit_label_offset|default": [0, 0],
-    "$place_holder_text|default": "",
-    "$place_holder_text_color|default": "",
-    "$place_holder_text_shadow_color|default": "",
-    "$place_holder_text_offset|default": [2, 0],
-    "enabled": "#enabled",
-    "bindings": [
-      {
-        "binding_type": "global",
-        "binding_collection_name": "Minecraft",
-        "binding_name": "#text_box_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ],
-    "focus_enabled": "$game_pad",
-    "focus_wrap_enabled": false,
-    "focus_magnet_enabled": false,
-    "default_focus_precedence": 1,
-    "controls": [
-      {
-        "text_clipping_panel": {
-          "type": "panel",
-          "size": "$clipping_panel_size",
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "offset": [2, 2],
-          "clips_children": true,
-          "controls": [
-            {
-              "$text_edit_text_control@_global.label_template": {
-                "layer": 4,
-                "text": "#item_name",
-                "offset": "$edit_label_offset",
-                "color": "$text_edit_color",
-                "locked_color": "$text_edit_locked_color",
-                "localize": false,
-                "property_bag": { "#property_field": "#item_name" },
-                "bindings": [
-                  {
-                    "binding_type": "global",
-                    "binding_condition": "visible",
-                    "binding_collection_name": "Minecraft",
-                    "binding_name": "$text_box_content",
-                    "binding_name_override": "#item_name"
-                  }
-                ]
-              }
-            },
-            {
-              "place_holder_text_label": {
-                "type": "panel",
-                "size": ["100%", "100%"],
-                "offset": "$place_holder_text_offset",
-                "controls": [
-                  {
-                    "overlay@_global.label_template": {
-                      "layer": 3,
-                      "text": "$place_holder_text",
-                      "color": "$place_holder_text_color",
-                      "localize": true
-                    }
-                  },
-                  {
-                    "underlay@_global.label_template": {
-                      "offset": [1, 1],
-                      "text": "$place_holder_text",
-                      "color": "$place_holder_text_shadow_color",
-                      "localize": true
-                    }
-                  }
-                ],
-                "bindings": [
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "$text_edit_text_control",
-                    "source_property_name": "(#item_name = '')",
-                    "target_property_name": "#visible",
-                    "resolve_sibling_scope": true
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      { "locked@$locked_control": {} },
-      { "default@$default_control": {} },
-      { "hover@$hover_control": {} },
-      { "pressed@$pressed_control": {} },
-      { "$extra_contents@$extra_contents": {} }
     ]
   },
-  "label_template": {
-    "type": "label",
-    "size": ["default", 10],
-    "layer": 2,
-    "anchor_from": "left_middle",
-    "anchor_to": "left_middle",
-    "font_size": "normal",
-    "text_alignment": "left"
-  },
-  "left_cell_toggles": {
-    "type": "panel",
-    "anchor_from": "right_middle",
-    "anchor_to": "left_middle",
-    "size": [19, "100%c"],
+
+  "toggle_texture_template": {
+    "type": "image",
+    "nineslice_size": "$button_texture_nineslice",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 3,
+    "size": ["100% - 2px", "100% - 2px"],
     "controls": [
       {
-        //horizontal stack panels shift their items left(the center anchor of a stack is the left middle)
-        //vertical stack panels shift their items up(the center anchor of a stack is the top middle)
-        "item_management_stack_1": {
-          "type": "stack_panel",
-          "size": [18, "100%c"],
-          "orientation": "vertical",
-          "controls": [
-            {
-              "reset_selection_toggle@_global.radio": {
-                "$toggle_view_binding_name": "toggle_mode_reset",
-                "$toggle_default_state": true
-              }
-            },
-            {
-              "move_toggles_stack": {
-                "type": "stack_panel",
-                "size": [18, "100%c"],
-                "orientation": "vertical",
-                "controls": [
-                  { "1@_global.radio": { "$toggle_view_binding_name": "move_one", "$toggle_group_forced_index": 1 } },
-                  { "2@_global.radio": { "$toggle_view_binding_name": "move_two", "$toggle_group_forced_index": 2 } },
-                  { "3@_global.radio": { "$toggle_view_binding_name": "move_all", "$toggle_group_forced_index": 3 } }
-                ]
-              }
-            },
-            {
-              "drop_toggles_stack": {
-                "type": "stack_panel",
-                "size": [18, "100%c"],
-                "orientation": "vertical",
-                "controls": [
-                  { "1@_global.radio": { "$toggle_view_binding_name": "drop_one", "$toggle_group_forced_index": 4 } },
-                  { "2@_global.radio": { "$toggle_view_binding_name": "drop_all", "$toggle_group_forced_index": 5 } }
-                ]
-              }
-            }
-          ],
-          "bindings": [
-            {"binding_type":"view","source_control_name":"move_one"  ,"source_property_name":"#toggle_state","target_property_name":"#is_move_one"},
-            {"binding_type":"view","source_control_name":"move_two"  ,"source_property_name":"#toggle_state","target_property_name":"#is_move_two"},
-            {"binding_type":"view","source_control_name":"move_all","source_property_name":"#toggle_state","target_property_name":"#is_move_all"},
-            {"binding_type":"view","source_control_name":"drop_one"  ,"source_property_name":"#toggle_state","target_property_name":"#is_drop_one"},
-            {"binding_type":"view","source_control_name":"drop_all","source_property_name":"#toggle_state","target_property_name":"#is_drop_all"},
-            {
-              "binding_type": "view",
-              "source_property_name": "(#is_move_all or #is_move_one or #is_move_two)",
-              "target_property_name": "#move_toggles_selected"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(#is_drop_all or #is_drop_one)",
-              "target_property_name": "#drop_toggles_selected"
-            }
-          ]
+        "$icon_path": {
+          "type": "image",
+          "size": "$icon_image_size",
+          "texture": "$icon_path",
+          "color": "$icon_color",
+          "layer": 4,
+          "offset": "$icon_texture_offset",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$icon_image_size": "$icon_texture_size",
+          "variables": {
+            "requires": "($icon_path = $icon_reset_texture)",
+            "$icon_image_size": "$icon_texture_reset_size"
+          }
         }
       }
-    ]
-  },
-  "right_row_toggles": {
-    "type": "stack_panel",
-    "size": [18, "100%c"],
-    "orientation": "vertical",
-    "anchor_from": "right_middle",
-    "anchor_to": "left_middle",
-    "controls": [
-      { "1@_global.radio": { "$toggle_view_binding_name": "move_one_row", "$toggle_group_forced_index": 6 } },
-      { "2@_global.radio": { "$toggle_view_binding_name": "move_two_row", "$toggle_group_forced_index": 7 } },
-      { "3@_global.radio": { "$toggle_view_binding_name": "move_all_row", "$toggle_group_forced_index": 8 } },
-      { "4@_global.radio": { "$toggle_view_binding_name": "drop_all_row", "$toggle_group_forced_index": 9 } }
-    ]
+    ],
+    "$icon_color|default": "$icon_texture_default_color",
+    "variables": {
+      "requires": "$toggle_is_hover",
+      "$icon_color": "$icon_texture_hover_color"
+    }
   }
 }

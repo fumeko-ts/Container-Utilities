@@ -7,11 +7,9 @@
       {
         "array_name": "controls",
         "operation": "insert_front",
-        "value": [
-          {
-            "container_elements@single_chest_content.container_elements": {}
-          }
-        ]
+        "value": {
+          "container_elements@single_chest_content.container_elements": {}
+        }
       }
     ]
   },
@@ -20,11 +18,9 @@
       {
         "array_name": "controls",
         "operation": "insert_front",
-        "value": [
-          {
-            "container_elements@double_chest_content.container_elements": {}
-          }
-        ]
+        "value": {
+          "container_elements@double_chest_content.container_elements": {}
+        }
       }
     ]
   }

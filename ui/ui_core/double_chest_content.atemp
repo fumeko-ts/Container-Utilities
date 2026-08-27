@@ -3,21 +3,8 @@
 
   "container_elements@single_chest_content.container_elements": {
     "controls": [
-      {
-        "left_elements@_global.left_cell_toggles": {
-          "anchor_from": "left_middle",
-          "anchor_to": "right_middle"
-        }
-      },
-      {"right_elements@_global.right_row_toggles": {}},
-      {
-        "text_box@_global.text_edit_box": {
-          "size": ["100%", 18],
-          "anchor_from": "bottom_middle",
-          "anchor_to": "top_middle",
-          "offset": [0, 2]
-        }
-      },
+      { "primary_elements@toggle_manager.primary_management_toggles": { "$toggle_position": "left" } },
+      { "right_elements@toggle_manager.right_row_toggles": {} },
       {
         "chest_top_overlays@double_chest_content.9x6_overlays": {
           "offset": [0, 12]
@@ -39,7 +26,8 @@
           "offset": [0, -14],
           "size": [162, 18]
         }
-      }
+      },
+      { "text_box@_global.text_edit_control": {} }
     ]
   },
 

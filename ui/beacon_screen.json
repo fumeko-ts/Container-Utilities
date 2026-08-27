@@ -4,11 +4,9 @@
       {
         "array_name": "controls",
         "operation": "insert_front",
-        "value": [
-          {
-            "right_elements@_global.left_cell_toggles": {}
-          }
-        ]
+        "value": {
+          "primary_elements@toggle_manager.primary_management_toggles": { "$toggle_position": "right" }
+        }
       }
     ]
   }
