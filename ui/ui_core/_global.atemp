@@ -120,7 +120,7 @@
         "binding_condition": "once"
       }
     ],
-    "controls": [{ "highlight@common.highlight_slot_panel": {} }],
+    "controls": [{ "highlight@$hover_control": {} }],
     "hover_control": "highlight",
     "sound_name": "random.click",
     "sound_volume": 0,

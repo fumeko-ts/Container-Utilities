@@ -4,15 +4,43 @@
   "container_elements": {
     "type": "panel",
     "$row_index_offset|default": 0,
+
+    //container slot controls
+    "$container_overlay_offset|default": [0, 12],
+    "$container_slot_pressed_control|default": "single_chest_content.default_cell_control",
+    "$container_slot_highlight_control|default": "single_chest_content.row_highlight_control",
+
+    //inventory slot controls
+    "$inventory_overlay_offset|default": [0, -35],
+    "$inventory_slot_pressed_control|default": "single_chest_content.default_cell_control",
+    "$inventory_slot_highlight_control|default": "single_chest_content.row_highlight_control",
+
+    //hotbar slot controls
+    "$hotbar_overlay_offset|default": [0, -14],
+    "$hotbar_slot_pressed_control|default": "single_chest_content.default_cell_control",
+    "$hotbar_slot_highlight_control|default": "single_chest_content.row_highlight_control",
+
     "controls": [
-      { "primary_elements@toggle_manager.primary_management_toggles": {"$toggle_position": "left"} },
+      {
+        "primary_elements@toggle_manager.primary_management_toggles": {
+          "$toggle_position": "left"
+        }
+      },
       { "right_elements@toggle_manager.right_row_toggles": {} },
-      { "chest_top_overlays@single_chest_content.9x3_overlays": { "offset": [0, 12] } },
+      {
+        "chest_top_overlays@single_chest_content.9x3_overlays": {
+          "$slot_pressed_control": "$container_slot_pressed_control",
+          "$slot_highlight_control": "$container_slot_highlight_control",
+          "offset": "$container_overlay_offset"
+        }
+      },
       {
         "inventory_overlay@single_chest_content.9x3_overlays": {
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "offset": [0, -35],
+          "offset": "$inventory_overlay_offset",
+          "$slot_pressed_control": "$inventory_slot_pressed_control",
+          "$slot_highlight_control": "$inventory_slot_highlight_control",
           "size": [162, 54],
           "$item_collection_name": "inventory_items"
         }
@@ -21,7 +49,9 @@
         "hotbar_overlay@single_chest_content.9x1_overlays": {
           "anchor_from": "bottom_left",
           "anchor_to": "bottom_left",
-          "offset": [0, -14],
+          "$slot_pressed_control": "$hotbar_slot_pressed_control",
+          "$slot_highlight_control": "$hotbar_slot_highlight_control",
+          "offset": "$hotbar_overlay_offset",
           "size": [162, 18]
         }
       },
@@ -196,41 +226,10 @@
             }
           ],
           "controls": [
-            {
-              "highlight": {
-                "texture": "textures/ui/cell_image",
-                "nineslice_size": 3,
-                "layer": -92,
-                "size": ["100%", "100%"],
-                "type": "image",
-                "controls": [
-                  {
-                    "highlight_slot": {
-                      "type": "image",
-                      "texture": "textures/ui/highlight_slot",
-                      "size": ["100% - 2px", "100% - 2px"],
-                      "alpha": 0.8
-                    }
-                  },
-                  {
-                    "white_border_slot": {
-                      "type": "image",
-                      "texture": "textures/ui/focus_border_white",
-                      "size": ["100%", "100%"]
-                    }
-                  }
-                ]
-              }
-            },
+            { "highlight@$slot_highlight_control": {} },
 
             {
-              "pressed_highlight": {
-                "texture": "textures/ui/cell_image",
-                "nineslice_size": 3,
-                "layer": -92,
-                "size": ["100%", "100%"],
-                "type": "image"
-              }
+              "pressed_highlight@$slot_pressed_control": {}
             }
           ]
         }
@@ -244,6 +243,32 @@
       { "slot_6@_global.input_panel_with_index": { "$collection_index": 6 } },
       { "slot_7@_global.input_panel_with_index": { "$collection_index": 7 } },
       { "slot_8@_global.input_panel_with_index": { "$collection_index": 8 } }
+    ]
+  },
+  "default_cell_control": {
+    "type": "image",
+    "size": ["100%", "100%"],
+    "texture": "textures/ui/cell_image",
+    "nineslice_size": 3,
+    "layer": -92
+  },
+  "row_highlight_control@single_chest_content.default_cell_control": {
+    "controls": [
+      {
+        "highlight_slot": {
+          "type": "image",
+          "texture": "textures/ui/highlight_slot",
+          "size": ["100% - 2px", "100% - 2px"],
+          "alpha": 0.8
+        }
+      },
+      {
+        "white_border_slot": {
+          "type": "image",
+          "texture": "textures/ui/focus_border_white",
+          "size": ["100%", "100%"]
+        }
+      }
     ]
   }
 }

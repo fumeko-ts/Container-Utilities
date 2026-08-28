@@ -1,21 +1,17 @@
 {
   "namespace": "item_data",
-  "move_1@_global.button": {"$button_output_action": "button.container_auto_place_one"},
-  "move_2": {
-    "type": "panel",
-    "controls": [
-      {"drop_button_underlay@item_data.move_1": {}},
-      {"move_2_overlay@_global.input_panel_overlay": {"$button_output_action": "button.container_auto_place_one"}}
-    ]
-  },
-  "move_all@_global.button": {"$button_output_action": "button.container_auto_place"},
-  "drop_1@_global.button"  : {"$button_output_action": "button.drop_one"},
-  "drop_all@_global.button": {"$button_output_action": "button.drop_all"},
 
   "item_movement_factory": {
     "type": "panel",
     "size": ["100%", "100%"],
     "layer": 5,
+    "$hover_control|default": "common.highlight_slot_panel",
+    "$button_factory_variables|default": [
+      //if your trying to accses a variable from above wilst inside the factory
+      //you will need to define it inside this array like "$hover_control"
+      "$item_collection_name",
+      "$hover_control"
+    ],
     "controls": [
       {
         "vanilla_button": {
@@ -51,7 +47,7 @@
               "drop_all": "item_data.drop_all",
               "move_2": "item_data.move_2"
             },
-            "factory_variables": ["$item_collection_name"]
+            "factory_variables": "$button_factory_variables"
           },
           "property_bag": {
             "#button_index_1": ["move_1"],
@@ -80,5 +76,19 @@
         }
       }
     ]
-  }
+  },
+
+
+
+  "move_1@_global.button": {"$button_output_action": "button.container_auto_place_one"},
+  "move_2": {
+    "type": "panel",
+    "controls": [
+      {"drop_button_underlay@item_data.move_1": {}},
+      {"move_2_overlay@_global.input_panel_overlay": {"$button_output_action": "button.container_auto_place_one"}}
+    ]
+  },
+  "move_all@_global.button": {"$button_output_action": "button.container_auto_place"},
+  "drop_1@_global.button"  : {"$button_output_action": "button.drop_one"},
+  "drop_all@_global.button": {"$button_output_action": "button.drop_all"}
 }
