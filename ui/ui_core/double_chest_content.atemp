@@ -1,4 +1,22 @@
-{
+/**
+// © 2026 ashura_temps,    All Rights Reserved.
+//
+// This UI is custom-made. You are allowed to use it **only as-is**, inside the game.
+// Do not modify, extract, reuse, or share any part of this UI including .json, .atemp files,
+// layout structure, or design.
+//
+// Not allowed:
+//   - Editing the UI (even for private/personal use)
+//   - Using parts of the code or layout in your own pack
+//   - Reuploading, redistributing, or hosting these files elsewhere
+//
+// By using this project, you agree to these terms.
+//
+// If you are a UI dev and are trying to make this pack compatible with yours do not embed my core ui data, 
+// theres dedicated entrypoint that should allow you to modify the code to your specifications (toggle_manager.atemp).
+*/
+
+{  
   "namespace": "double_chest_content",
 
   "container_elements@single_chest_content.container_elements": {
