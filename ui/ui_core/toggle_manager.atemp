@@ -5,6 +5,7 @@
     "anchor_from": "$toggle_holder_anchor_from",
     "anchor_to": "$toggle_holder_anchor_to",
 
+    //recomended size is 18x18(sizes above 18x18 are valid however they may look weird)
     "$management_toggle_size|default": [18, 18],
 
     //def: primary_management_toggles - namespace: toggle_manager

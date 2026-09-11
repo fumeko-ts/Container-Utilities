@@ -249,7 +249,7 @@
     "type": "image",
     "size": ["100%", "100%"],
     "texture": "textures/ui/cell_image",
-    "nineslice_size": 3,
+    "nineslice_size": 1,
     "layer": -92
   },
   "row_highlight_control@single_chest_content.default_cell_control": {

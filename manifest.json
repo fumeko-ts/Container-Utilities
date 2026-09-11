@@ -2,8 +2,8 @@
   "format_version": 3,
   "header": {
     "name": "§lContainer Utilities§r",
-    "description": "By @Ashura_temps\n\n§fDiscord: §bhttps://discord.gg/sFnE7zv75t",
-    "uuid": "d72ec044-44b2-4827-aba0-1dd4b5c4621c",
+    "description": "By @Ashura_temps\n§fDiscord: §bhttps://discord.gg/sFnE7zv75t",
+    "uuid": "a8398cd0-58f4-4026-abbd-05e52d4c28bc",
     "version": "0.0.1",
     "min_engine_version": "1.26.40"
   },
@@ -11,7 +11,7 @@
     {
       "type": "resources",
       "description": "Created by Ashura_temps",
-      "uuid": "f049a378-a4a8-4bb9-a401-9bf38df215fb",
+      "uuid": "2a5913ce-afaa-49af-abf8-3690d11bb67e",
       "version": "0.0.1"
     }
   ],
